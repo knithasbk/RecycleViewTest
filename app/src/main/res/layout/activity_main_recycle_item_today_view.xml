@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/text_view_day_item"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="4dp"
+                android:paddingLeft="8dp"
+                android:text="Monday"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_view_time_item"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="4dp"
+                android:paddingLeft="8dp"
+                android:text="8:00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_temperature_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="30 F"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/text_view_day_status_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Today is a sunshine day" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_view_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.22" />
+
+</LinearLayout>
