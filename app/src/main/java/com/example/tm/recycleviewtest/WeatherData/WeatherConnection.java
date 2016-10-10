@@ -1,6 +1,6 @@
 package com.example.tm.recycleviewtest.WeatherData;
 
-import com.example.tm.recycleviewtest.model.WeatherListItem;
+import com.example.tm.recycleviewtest.model.WeatherListItemData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,20 +19,20 @@ import java.net.URL;
  */
 
 public class WeatherConnection {
-    final String BASIC_URL = "http://api.openweathermap.org/data/2.5/forecast/city?id=";
-    final String URLAPPEND = "&APPID=";
+    WeatherData weatherData;
     JSONObject jsonObject;
-    JSONArray jsonData;
+  //  http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=16&APPID=1f9ed645ac85d117e32bdc1492a7cef6
 
-
-    public String getWeatherJSONString(String city) {
+    public String getWeatherJSONString(int cityId) {
+        weatherData = new WeatherData();
         URL url = null;
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         StringBuffer stringBuffer = null;
 
-        StringBuilder sb = new StringBuilder(BASIC_URL);
-        StringBuilder urlBuilt = sb.append(city).append(URLAPPEND).append(new WeatherData().WEATHER_ID);
+        StringBuilder sb = new StringBuilder(weatherData.BASIC_URL);
+        StringBuilder urlBuilt = sb.append(String.valueOf(cityId)).append(weatherData.DATE_QUERY)
+                .append(weatherData.DATE_NUMBER).append(weatherData.APPID).append(weatherData.USER_ID);
         String urlString = urlBuilt.toString();
 
         try {
@@ -73,17 +73,14 @@ public class WeatherConnection {
         return stringBuffer.toString();
     }
 
-
-
-    public JSONArray getDataFromJSONString(String city) {
-        String jsonString = getWeatherJSONString(city)
+    public JSONObject getDataFromJSONString(int cityId) {
+        String jsonString = getWeatherJSONString(cityId);
         try {
             jsonObject = new JSONObject(jsonString);
-            jsonData = jsonObject.getJSONArray("list");
-        }catch ( JSONException e){
+             }catch ( JSONException e){
             System.out.print(e);
         }
-    return jsonData;
+    return jsonObject;
     }
 
 

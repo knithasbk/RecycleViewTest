@@ -11,17 +11,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.example.tm.recycleviewtest.adapter.MyAdapter;
-import com.example.tm.recycleviewtest.model.WeatherListItem;
+import com.example.tm.recycleviewtest.adapter.WeatherAdapterRecycleView;
+import com.example.tm.recycleviewtest.model.WeatherListItemData;
 import com.example.tm.recycleviewtest.model.WeatherListItemContent;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    MyAdapter myAdapter;
+    WeatherAdapterRecycleView myAdapter;
     WeatherListItemContent weatherListItemContent = new WeatherListItemContent();
-    ArrayList<WeatherListItem> weatherListItemArray = new ArrayList<>();
+    ArrayList<WeatherListItemData> weatherListItemArray = new ArrayList<>();
+
+
 
     private Toolbar mToolbar;
 
@@ -39,13 +41,16 @@ public class MainActivity extends AppCompatActivity {
         // Set show RecycleView
 
         weatherListItemArray = weatherListItemContent.createWethearContentData();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        myAdapter = new MyAdapter(weatherListItemArray);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.weather_recycler_view);
+        myAdapter = new WeatherAdapterRecycleView(weatherListItemArray);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         recyclerView.setAdapter(myAdapter);
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

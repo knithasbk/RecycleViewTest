@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class WeatherListItemContent {
-    final static ArrayList<WeatherListItem> data = new ArrayList<>();
+    final static ArrayList<WeatherListItemData> data = new ArrayList<>();
   /**   public WeatherListItem createWetherListItemData(String textViewDayStatus, String textViewDay,
                                                     String textViewtemperature, int imageViewItem) {
         mWeatherListItem.setImageViewItem(imageViewItem);
@@ -19,8 +19,8 @@ public class WeatherListItemContent {
         return mWeatherListItem;
     }
 */
-    public ArrayList<WeatherListItem> createWethearContentData() {
-        WeatherListItem weatherListItem;
+    public ArrayList<WeatherListItemData> createWethearContentData() {
+        WeatherListItemData weatherListItem;
 
         String textViewDayStatus;
         String textViewDay;
