@@ -6,60 +6,153 @@ package com.example.tm.recycleviewtest.model;
  */
 
 public class WeatherListItemData {
-    String mTextViewItemTimeDayofWeek;
-    float mTextViewItemTemperature;
-    String mTextViewItemDayStatus;
-    int mTextViewItemDayOfMonth;
-    int mImageViewItem;
 
+    int id;
+    String mCityName;
+    Double mCityLon;
+    Double mCityLat;
+    String mDayofWeek;
+    String mDayofMonth;
+    double mMaxTemperure;
+    double mMinTemperure;
+    double mDatePressure;
+    double mDateHumidity;
+    String mDateStatusMain;
+    String mDateStatusDescription;
+    double mDateWindSpeed;
+    int mImageItem;
 
-    public WeatherListItemData(String mTextViewItemTimeDayofWeek, float mTextViewItemTemperature,
-                               String mTextViewItemDayStatus, int mTextViewItemDayOfMonth, int mImageViewItem) {
-        this.mTextViewItemTimeDayofWeek = mTextViewItemTimeDayofWeek;
-        this.mTextViewItemTemperature = mTextViewItemTemperature;
-        this.mTextViewItemDayStatus = mTextViewItemDayStatus;
-        this.mTextViewItemDayOfMonth = mTextViewItemDayOfMonth;
-        this.mImageViewItem = mImageViewItem;
-
-            }
-
-    public String getmTextViewItemTimeDayofWeek() {
-        return mTextViewItemTimeDayofWeek;
+    public WeatherListItemData(int id, String mCityName, Double mCityLon, Double mCityLat, String mDayofWeek,
+                               String mDayofMonth, double mMaxTemperure, double mMinTemperure, double mDatePressure,
+                               double mDateHumidity, String mDateStatusMain, String mDateStatusDescription,
+                               double mDateWindSpeed, int mImageItem) {
+        this.id = id;
+        this.mCityName = mCityName;
+        this.mCityLon = mCityLon;
+        this.mCityLat = mCityLat;
+        this.mDayofWeek = mDayofWeek;
+        this.mDayofMonth = mDayofMonth;
+        this.mMaxTemperure = mMaxTemperure;
+        this.mMinTemperure = mMinTemperure;
+        this.mDatePressure = mDatePressure;
+        this.mDateHumidity = mDateHumidity;
+        this.mDateStatusMain = mDateStatusMain;
+        this.mDateStatusDescription = mDateStatusDescription;
+        this.mDateWindSpeed = mDateWindSpeed;
+        this.mImageItem = mImageItem;
     }
 
-    public void setmTextViewItemTimeDayofWeek(String mTextViewItemTimeDayofWeek) {
-        this.mTextViewItemTimeDayofWeek = mTextViewItemTimeDayofWeek;
+    public double getId() {
+        return id;
     }
 
-    public float getmTextViewItemTemperature() {
-        return mTextViewItemTemperature;
+    public void setId(int id) {
+        this.id = id;
+
     }
 
-    public void setmTextViewItemTemperature(float mTextViewItemTemperature) {
-        this.mTextViewItemTemperature = mTextViewItemTemperature;
+    public String getmCityName() {
+        return mCityName;
     }
 
-    public String getmTextViewItemDayStatus() {
-        return mTextViewItemDayStatus;
+    public void setmCityName(String mCityName) {
+        this.mCityName = mCityName;
     }
 
-    public void setmTextViewItemDayStatus(String mTextViewItemDayStatus) {
-        this.mTextViewItemDayStatus = mTextViewItemDayStatus;
+    public Double getmCityLon() {
+        return mCityLon;
     }
 
-    public int getmTextViewItemDayOfMonth() {
-        return mTextViewItemDayOfMonth;
+    public void setmCityLon(Double mCityLon) {
+        this.mCityLon = mCityLon;
     }
 
-    public void setmTextViewItemDayOfMonth(int mTextViewItemDayOfMonth) {
-        this.mTextViewItemDayOfMonth = mTextViewItemDayOfMonth;
+    public Double getmCityLat() {
+        return mCityLat;
     }
 
-    public int getmImageViewItem() {
-        return mImageViewItem;
+    public void setmCityLat(Double mCityLat) {
+        this.mCityLat = mCityLat;
     }
 
-    public void setmImageViewItem(int mImageViewItem) {
-        this.mImageViewItem = mImageViewItem;
+    public String getmDayofWeek() {
+        return mDayofWeek;
+    }
+
+    public void setmDayofWeek(String mDayofWeek) {
+        this.mDayofWeek = mDayofWeek;
+    }
+
+    public String getmDayofMonth() {
+        return mDayofMonth;
+    }
+
+    public void setmDayofMonth(String mDayofMonth) {
+        this.mDayofMonth = mDayofMonth;
+    }
+
+    public double getmMaxTemperure() {
+        return mMaxTemperure;
+    }
+
+    public void setmMaxTemperure(double mMaxTemperure) {
+        this.mMaxTemperure = mMaxTemperure;
+    }
+
+    public double getmMinTemperure() {
+        return mMinTemperure;
+    }
+
+    public void setmMinTemperure(double mMinTemperure) {
+        this.mMinTemperure = mMinTemperure;
+    }
+
+    public double getmDatePressure() {
+        return mDatePressure;
+    }
+
+    public void setmDatePressure(double mDatePressure) {
+        this.mDatePressure = mDatePressure;
+    }
+
+    public double getmDateHumidity() {
+        return mDateHumidity;
+    }
+
+    public void setmDateHumidity(double mDateHumidity) {
+        this.mDateHumidity = mDateHumidity;
+    }
+
+    public String getmDateStatusMain() {
+        return mDateStatusMain;
+    }
+
+    public void setmDateStatusMain(String mDateStatusMain) {
+        this.mDateStatusMain = mDateStatusMain;
+    }
+
+    public String getmDateStatusDescription() {
+        return mDateStatusDescription;
+    }
+
+    public void setGetmDateStatusDescription(String mDateStatusDescription) {
+        this.mDateStatusDescription = mDateStatusDescription;
+    }
+
+    public double getmDateWindSpeed() {
+        return mDateWindSpeed;
+    }
+
+    public void setmDateWindSpeed(double mDateWindSpeed) {
+        this.mDateWindSpeed = mDateWindSpeed;
+    }
+
+    public int getmImageItem() {
+        return mImageItem;
+    }
+
+    public void setmImageItem(int mImageItem) {
+        this.mImageItem = mImageItem;
     }
 }
+

@@ -36,7 +36,7 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
             super(view);
             mTextViewItemTimeDayofWeek = (TextView) view.findViewById(R.id.text_view_day_of_week_item);
             mTextViewItemDayStatus = (TextView) view.findViewById(R.id.text_view_day_status_item);
-            mTextViewItemTemperature = (TextView) view.findViewById(R.id.text_view_temperature_item);
+            mTextViewItemTemperature = (TextView) view.findViewById(R.id.text_view_max_temperature_item);
             mTextViewItemDayOfMonth = (TextView) view.findViewById(R.id.text_view_day_of_month_item);
             mImageViewItem = (ImageView) view.findViewById(R.id.image_view_item);
         }
@@ -54,11 +54,11 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
     @Override
     public void onBindViewHolder(MyRecycleViewHolder holder, int position) {
         WeatherListItemData weatherListItem = weatherListItemList.get(position);
-        holder.mTextViewItemDayStatus.setText(weatherListItem.getmTextViewItemDayStatus());
-        holder.mTextViewItemTimeDayofWeek.setText(weatherListItem.getmTextViewItemTimeDayofWeek());
-        holder.mTextViewItemTemperature.setText(String.valueOf(weatherListItem.getmTextViewItemTemperature()));
-        holder.mTextViewItemDayOfMonth.setText(weatherListItem.getmTextViewItemDayOfMonth());
-        holder.mImageViewItem.setImageResource(weatherListItem.getmImageViewItem());
+        holder.mTextViewItemDayStatus.setText(weatherListItem.getmDateStatusMain());
+        holder.mTextViewItemTimeDayofWeek.setText(weatherListItem.getmDayofWeek());
+        holder.mTextViewItemTemperature.setText(String.valueOf(weatherListItem.getmMaxTemperure()));
+        holder.mTextViewItemDayOfMonth.setText(weatherListItem.getmDayofMonth());
+        holder.mImageViewItem.setImageResource(weatherListItem.getmImageItem());
     }
 
     @Override
