@@ -1,4 +1,4 @@
-package com.example.tm.recycleviewtest.WeatherData;
+package com.example.tm.recycleviewtest;
 
 /**
  * Created by TM on 10/10/2016.
@@ -53,7 +53,7 @@ public class WeatherData {
 
     public static final  class WeatherEntry {
         public static final String WEATHER_ID = "_id";
-        public static final int COLUMN_DATE = "weather_date"
+        public static final String COLUMN_DATE = "weather_date";
         public static final String DATABASE_NAME = "weather_db";
         public static final String COLUMN_DATE_OF_WEEK = "day_of_week";
         public static final String COLUMN_DATE_OF_MONTH = "day_of_month";
@@ -67,7 +67,6 @@ public class WeatherData {
         public static final String COLUMN_IMGATE_ID = "image_id";
         public static final int DATABASE_VERSION = 1;
         public static final String COLUMN_LOC_ID_SYNC = "location_id";
-
 
     }
 

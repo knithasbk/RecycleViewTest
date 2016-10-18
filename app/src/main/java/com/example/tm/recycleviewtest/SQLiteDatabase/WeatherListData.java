@@ -1,12 +1,11 @@
-package com.example.tm.recycleviewtest.model;
+package com.example.tm.recycleviewtest.SQLiteDatabase;
 
 
 /**
  * Created by TM on 03/10/2016.
  */
 
-public class WeatherListItemData {
-
+public class WeatherListData {
     int id;
     String mCityName;
     Double mCityLon;

@@ -1,4 +1,4 @@
-package com.example.tm.recycleviewtest.adapter;
+package com.example.tm.recycleviewtest.AdapterRecycleViewMainActivity;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,21 +15,24 @@ import java.util.ArrayList;
 /*Get data from data - WeatherData and flate to view  */
 public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapterRecycleView.MyRecycleViewHolder> {
 
-    ArrayList<WeatherListItemData> weatherListItemList;
+    private ArrayList<WeatherListItemData> weatherListItemList;
+    private static RecyclerViewClickListener itemListener;
 
 
-    public WeatherAdapterRecycleView(ArrayList<WeatherListItemData> weatherListItemList) {
+    public WeatherAdapterRecycleView(ArrayList<WeatherListItemData> weatherListItemList, RecyclerViewClickListener itemListener) {
         this.weatherListItemList = weatherListItemList;
+        this.itemListener = itemListener;
     }
 
 
     // call view item
-    public class MyRecycleViewHolder extends RecyclerView.ViewHolder {
+    public static class MyRecycleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mTextViewItemTimeDayofWeek;
         TextView mTextViewItemTemperature;
         TextView mTextViewItemDayStatus;
         TextView mTextViewItemDayOfMonth;
         ImageView mImageViewItem;
+
 
         //Constructor, without void or type of variables
         public MyRecycleViewHolder(View view) {
@@ -39,8 +42,16 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
             mTextViewItemTemperature = (TextView) view.findViewById(R.id.text_view_max_temperature_item);
             mTextViewItemDayOfMonth = (TextView) view.findViewById(R.id.text_view_day_of_month_item);
             mImageViewItem = (ImageView) view.findViewById(R.id.image_view_item);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            itemListener.recyclerViewListClicked(view, this.getLayoutPosition());
+
         }
     }
+
 
     //Constructor for declare the class, initial class
     // call onCreateViewHolder return a instance of ViewHolder for  onBindViewHolder

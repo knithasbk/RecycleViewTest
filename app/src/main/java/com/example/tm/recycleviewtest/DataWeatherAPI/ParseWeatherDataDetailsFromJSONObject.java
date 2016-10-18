@@ -1,15 +1,10 @@
-package com.example.tm.recycleviewtest.WeatherData;
+package com.example.tm.recycleviewtest.DataWeatherAPI;
 
-import com.example.tm.recycleviewtest.R;
+import com.example.tm.recycleviewtest.WeatherData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 
 
 /**
@@ -18,33 +13,29 @@ import java.util.Date;
 // get needed data from JSON String - WeatherConnection class
 // Send data to
 
-public class GetJSONData {
+public class ParseWeatherDataDetailsFromJSONObject {
 
     private WeatherData weatherData;
     private JSONObject jsonObject;
     WeatherConnection weatherConnection;
 
-/*
-* Get details data from JSON String then store to SQLite DB
-*
-* */
+    /*
+    * Get details data from JSON String then store to SQLite DB
+    *
+    * */
     public void GetWeatherDetailsListData(int cityId) {
         weatherConnection = new WeatherConnection();
-     //  JSONObject jsonObject1 =weatherConnection.getDataFromJSONString(cityId);
+        //  JSONObject jsonObject1 =weatherConnection.getDataFromJSONString(cityId);
 
         try {
 
             //For testing  -- Delete after finished
             JSONObject jsonObject1 = new JSONObject(WeatherData.JSON_STRING);
-
-
-
             String cityName = jsonObject1.getString(weatherData.CITY_NAME);
-            String countryName  = jsonObject1.getString(weatherData.COUNTRY_NAME);
+            String countryName = jsonObject1.getString(weatherData.COUNTRY_NAME);
             JSONObject jsonObjectCoord = jsonObject1.getJSONObject("coord");
             double cityLon = jsonObjectCoord.getDouble(weatherData.COORD_LON);
             double cityLat = jsonObjectCoord.getDouble(weatherData.COORD_LAT);
-
 
 
             // From JSON String, get JSON array "list"
@@ -73,19 +64,12 @@ public class GetJSONData {
                 String mImageItem = jsonObject2.getString(weatherData.JSON_WEATHER_LIST_STATUS_ICON);
 
 
-
-
-
-
             }
         } catch (JSONException e) {
             System.out.println(e);
         }
-        return ;
+        return;
     }
-
-
-
 
 
 }

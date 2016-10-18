@@ -1,29 +1,32 @@
-package com.example.tm.recycleviewtest.WeatherData;
+package com.example.tm.recycleviewtest.DataWeatherAPI;
 
-import com.example.tm.recycleviewtest.model.WeatherListItemData;
+import com.example.tm.recycleviewtest.WeatherData;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
  * Created by TM on 05/10/2016.
+ * Start a connect with weather API - Then get JSON String from Weather API
+ * <p>
+ * Input : int cityId
+ * Output: JSONObject jsonObject
  */
 
-public class WeatherConnection {
-    WeatherData weatherData;
-    JSONObject jsonObject;
-  //  http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=16&APPID=1f9ed645ac85d117e32bdc1492a7cef6
 
-    public String getWeatherJSONString(int cityId) {
+public class GetJSONObjectFromWeatherAPIConnection {
+    private WeatherData weatherData;
+    private JSONObject jsonObject;
+    //  http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=16&APPID=1f9ed645ac85d117e32bdc1492a7cef6
+
+    public JSONObject getWeatherJSONStringByCityId(int cityId) {
         weatherData = new WeatherData();
         URL url = null;
         HttpURLConnection urlConnection = null;
@@ -70,17 +73,17 @@ public class WeatherConnection {
         } finally {
             urlConnection.disconnect();
         }
-        return stringBuffer.toString();
+        jsonObject = getDataFromJSONString(stringBuffer.toString());
+        return jsonObject;
     }
 
-    public JSONObject getDataFromJSONString(int cityId) {
-        String jsonString = getWeatherJSONString(cityId);
+    public JSONObject getDataFromJSONString(String jsonString) {
         try {
             jsonObject = new JSONObject(jsonString);
-             }catch ( JSONException e){
+        } catch (JSONException e) {
             System.out.print(e);
         }
-    return jsonObject;
+        return jsonObject;
     }
 
 

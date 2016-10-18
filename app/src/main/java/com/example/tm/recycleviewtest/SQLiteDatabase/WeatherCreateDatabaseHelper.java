@@ -1,22 +1,22 @@
-package com.example.tm.recycleviewtest.WeatherData;
+package com.example.tm.recycleviewtest.SQLiteDatabase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.tm.recycleviewtest.WeatherData.WeatherData.WeatherEntry;
+import com.example.tm.recycleviewtest.WeatherData.WeatherEntry;
 
-import com.example.tm.recycleviewtest.WeatherData.WeatherData.LocationEntry;
+import com.example.tm.recycleviewtest.WeatherData.LocationEntry;
 /**
  * Created by TM on 12/10/2016.
  */
 
-public class WeatherDatabaseHelper extends SQLiteOpenHelper {
+public class WeatherCreateDatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public WeatherDatabaseHelper(Context context) {
+    public WeatherCreateDatabaseHelper(Context context) {
         super(context, WeatherEntry.DATABASE_NAME, null, WeatherEntry.DATABASE_VERSION);
     }
 
@@ -24,7 +24,7 @@ public class WeatherDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String CREATE_LOCATION_DATABASE =  "create tables " + LocationEntry.DATABASE_NAME + " ( "
-                + LocationEntry.ID + " INTEGER PRIMARY KEY, "
+                + LocationEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LocationEntry.COLUMN_CITY_LAT + " REAL NOT NULL, "
                 + LocationEntry.COLUMN_CITY_LON +" REAL NOT NULL, "
                 + LocationEntry.COLUMN_CITY_NAME + "STRING"
@@ -64,6 +64,19 @@ public class WeatherDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + LocationEntry.DATABASE_NAME);
         onCreate(db);
     }
+
+    public void addCityLocation(){
+
+
+    public void addWeatherDataValueRow(String dayOfMoth,){
+
+
+    }
+
+
+
+    }
+
 
 
 }
