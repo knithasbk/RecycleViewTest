@@ -24,7 +24,8 @@ import java.net.URL;
 public class GetJSONObjectFromWeatherAPIConnection {
     private WeatherData weatherData;
     private JSONObject jsonObject;
-    //  http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=16&APPID=1f9ed645ac85d117e32bdc1492a7cef6
+
+    //http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=16&APPID=1f9ed645ac85d117e32bdc1492a7cef6
 
     public JSONObject getWeatherJSONStringByCityId(int cityId) {
         weatherData = new WeatherData();
@@ -73,11 +74,12 @@ public class GetJSONObjectFromWeatherAPIConnection {
         } finally {
             urlConnection.disconnect();
         }
-        jsonObject = getDataFromJSONString(stringBuffer.toString());
+        jsonObject = ParseStringToJSONObject(stringBuffer.toString());
         return jsonObject;
     }
 
-    public JSONObject getDataFromJSONString(String jsonString) {
+
+    public JSONObject ParseStringToJSONObject(String jsonString) {
         try {
             jsonObject = new JSONObject(jsonString);
         } catch (JSONException e) {

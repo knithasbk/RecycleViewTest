@@ -8,18 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tm.recycleviewtest.R;
-import com.example.tm.recycleviewtest.model.WeatherListItemData;
+import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherListData;
 
 import java.util.ArrayList;
 
 /*Get data from data - WeatherData and flate to view  */
 public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapterRecycleView.MyRecycleViewHolder> {
 
-    private ArrayList<WeatherListItemData> weatherListItemList;
+    private ArrayList<WeatherListData> weatherListItemList;
     private static RecyclerViewClickListener itemListener;
 
 
-    public WeatherAdapterRecycleView(ArrayList<WeatherListItemData> weatherListItemList, RecyclerViewClickListener itemListener) {
+    public WeatherAdapterRecycleView(ArrayList<WeatherListData> weatherListItemList, RecyclerViewClickListener itemListener) {
         this.weatherListItemList = weatherListItemList;
         this.itemListener = itemListener;
     }
@@ -64,7 +64,7 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
 
     @Override
     public void onBindViewHolder(MyRecycleViewHolder holder, int position) {
-        WeatherListItemData weatherListItem = weatherListItemList.get(position);
+        WeatherListData weatherListItem = weatherListItemList.get(position);
         holder.mTextViewItemDayStatus.setText(weatherListItem.getmDateStatusMain());
         holder.mTextViewItemTimeDayofWeek.setText(weatherListItem.getmDayofWeek());
         holder.mTextViewItemTemperature.setText(String.valueOf(weatherListItem.getmMaxTemperure()));

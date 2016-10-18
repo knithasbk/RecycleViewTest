@@ -18,7 +18,7 @@
 
         <include
             android:id="@+id/details_layout_menu"
-            layout="@layout/activity_main_toolbar">
+            layout="@layout/details_layout_toolbar">
 
         </include>
 

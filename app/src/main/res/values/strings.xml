@@ -1,9 +1,30 @@
 <resources>
-    <string name="app_name">Recycle View</string>
+    <string name="app_name">Daily Weather</string>
+    <string name="detals_weather_name">Details Weather</string>
     <string name="action_bar_setting">Settings</string>
     <string name="action_bar_search">Search</string>
+    <string name="settings_preference_name">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pref_setting_location">Location</string>
+    <string name="pref_setting_location_city">Choose Location base City Name</string>
+    <string name="pref_setting_temperature_type">Temperature Type</string>
+    <string name="sign_up_notify_me_who_title">Hello blank fragment</string>
+
+
+    <string name="sign_up_notify_me_who">Hello blank fragment</string>
+
+    <array name="units">
+        <item name="a" />
+        <item name="b" />
+        <item name="c" />
+    </array>
+    <array name="empty_array"></array>
+    <array name="units_values">
+        <item value="1" />
+        <item value="2" />
+        <item value="3" />
+    </array>
 
 </resources>

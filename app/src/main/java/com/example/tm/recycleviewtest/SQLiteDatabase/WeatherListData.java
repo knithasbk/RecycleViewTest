@@ -6,10 +6,8 @@ package com.example.tm.recycleviewtest.SQLiteDatabase;
  */
 
 public class WeatherListData {
+
     int id;
-    String mCityName;
-    Double mCityLon;
-    Double mCityLat;
     String mDayofWeek;
     String mDayofMonth;
     double mMaxTemperure;
@@ -21,14 +19,12 @@ public class WeatherListData {
     double mDateWindSpeed;
     int mImageItem;
 
-    public WeatherListItemData(int id, String mCityName, Double mCityLon, Double mCityLat, String mDayofWeek,
-                               String mDayofMonth, double mMaxTemperure, double mMinTemperure, double mDatePressure,
-                               double mDateHumidity, String mDateStatusMain, String mDateStatusDescription,
-                               double mDateWindSpeed, int mImageItem) {
-        this.id = id;
-        this.mCityName = mCityName;
-        this.mCityLon = mCityLon;
-        this.mCityLat = mCityLat;
+    public WeatherListData(int id, String mDayofWeek,
+                           String mDayofMonth, double mMaxTemperure, double mMinTemperure, double mDatePressure,
+                           double mDateHumidity, String mDateStatusMain, String mDateStatusDescription,
+                           double mDateWindSpeed, int mImageItem) {
+
+        this.id = id ;
         this.mDayofWeek = mDayofWeek;
         this.mDayofMonth = mDayofMonth;
         this.mMaxTemperure = mMaxTemperure;
@@ -41,39 +37,12 @@ public class WeatherListData {
         this.mImageItem = mImageItem;
     }
 
-    public double getId() {
+    public int getId(){
         return id;
     }
-
-    public void setId(int id) {
+    public void setId(int id){
         this.id = id;
-
     }
-
-    public String getmCityName() {
-        return mCityName;
-    }
-
-    public void setmCityName(String mCityName) {
-        this.mCityName = mCityName;
-    }
-
-    public Double getmCityLon() {
-        return mCityLon;
-    }
-
-    public void setmCityLon(Double mCityLon) {
-        this.mCityLon = mCityLon;
-    }
-
-    public Double getmCityLat() {
-        return mCityLat;
-    }
-
-    public void setmCityLat(Double mCityLat) {
-        this.mCityLat = mCityLat;
-    }
-
     public String getmDayofWeek() {
         return mDayofWeek;
     }

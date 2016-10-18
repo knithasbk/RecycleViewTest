@@ -1,6 +1,6 @@
 package com.example.tm.recycleviewtest;
 
-import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherListItemData;
+import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherListData;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class WeatherListItemContentTest {
-    final static ArrayList<WeatherListItemData> data = new ArrayList<>();
+    final static ArrayList<WeatherListData> data = new ArrayList<>();
 
     /**
      * public WeatherListItem createWetherListItemData(String textViewDayStatus, String textViewDay,
@@ -24,8 +24,8 @@ public class WeatherListItemContentTest {
     public WeatherListItemContentTest(){
 
     }
-    public ArrayList<WeatherListItemData> createWethearContentData() {
-        WeatherListItemData weatherListItemData;
+    public ArrayList<WeatherListData> createWethearContentData() {
+        WeatherListData weatherListItemData;
         int id =1;
         String mCityName = "0";
         Double mCityLon = 0.1;
@@ -66,7 +66,7 @@ public class WeatherListItemContentTest {
                     mImageItem = R.drawable.art_snow;
                     break;
             }
-            weatherListItemData = new WeatherListItemData(id, mCityName, mCityLon, mCityLat, mDayofWeek,
+            weatherListItemData = new WeatherListData(id, mDayofWeek,
                     mDayofMonth, mMaxTemperure, mMinTemperure, mDatePressure,
                     mDateHumidity, mDateStatusMain, mDateStatusDescription,
                     mDateWindSpeed, mImageItem) {};
