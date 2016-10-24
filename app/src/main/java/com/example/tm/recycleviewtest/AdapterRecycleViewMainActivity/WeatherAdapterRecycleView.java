@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /*Get data from data - WeatherData and flate to view  */
 public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapterRecycleView.MyRecycleViewHolder> {
 
-    private ArrayList<WeatherListData> weatherListItemList;
+    private ArrayList<WeatherListData> weatherListItemList = null;
     private static RecyclerViewClickListener itemListener;
 
 
@@ -52,7 +52,6 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
         }
     }
 
-
     //Constructor for declare the class, initial class
     // call onCreateViewHolder return a instance of ViewHolder for  onBindViewHolder
     @Override
@@ -61,7 +60,6 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
         MyRecycleViewHolder holder = new MyRecycleViewHolder(view);
         return holder;
     }
-
     @Override
     public void onBindViewHolder(MyRecycleViewHolder holder, int position) {
         WeatherListData weatherListItem = weatherListItemList.get(position);
@@ -76,7 +74,6 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
     public int getItemCount() {
         return weatherListItemList.size();
     }
-
 }
 
 

@@ -18,11 +18,15 @@ public class WeatherListData {
     String mDateStatusDescription;
     double mDateWindSpeed;
     int mImageItem;
+    int mLocation;
+
+    public WeatherListData() {
+    }
 
     public WeatherListData(int id, String mDayofWeek,
                            String mDayofMonth, double mMaxTemperure, double mMinTemperure, double mDatePressure,
                            double mDateHumidity, String mDateStatusMain, String mDateStatusDescription,
-                           double mDateWindSpeed, int mImageItem) {
+                           double mDateWindSpeed, int mImageItem,int mLocation) {
 
         this.id = id ;
         this.mDayofWeek = mDayofWeek;
@@ -35,8 +39,34 @@ public class WeatherListData {
         this.mDateStatusDescription = mDateStatusDescription;
         this.mDateWindSpeed = mDateWindSpeed;
         this.mImageItem = mImageItem;
+        this.mLocation = mLocation;
+    }
+    public WeatherListData( String mDayofWeek,
+                           String mDayofMonth, double mMaxTemperure, double mMinTemperure, double mDatePressure,
+                           double mDateHumidity, String mDateStatusMain, String mDateStatusDescription,
+                           double mDateWindSpeed, int mImageItem,int mLocation) {
+
+        this.mDayofWeek = mDayofWeek;
+        this.mDayofMonth = mDayofMonth;
+        this.mMaxTemperure = mMaxTemperure;
+        this.mMinTemperure = mMinTemperure;
+        this.mDatePressure = mDatePressure;
+        this.mDateHumidity = mDateHumidity;
+        this.mDateStatusMain = mDateStatusMain;
+        this.mDateStatusDescription = mDateStatusDescription;
+        this.mDateWindSpeed = mDateWindSpeed;
+        this.mImageItem = mImageItem;
+        this.mLocation = mLocation;
     }
 
+
+    public void setmLocation(int mLocation){
+        this.mLocation = mLocation;
+    }
+    public int getmLocation(int mLocation){
+        return mLocation;
+
+    }
     public int getId(){
         return id;
     }

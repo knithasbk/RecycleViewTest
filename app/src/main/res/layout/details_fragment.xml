@@ -1,52 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.tm.recycleviewtest.DetailActivity"
-    >
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/layout_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:weightSum="1">
-
-        <include
-            android:id="@+id/details_layout_menu"
-            layout="@layout/details_layout_toolbar">
-
-        </include>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.14"
+        android:layout_weight="1.5"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/detail_day_of_week"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+
             android:layout_weight="2"
+            android:background="@drawable/border_layout"
             android:padding="8dp"
             android:text="Saturday"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
 
         <TextView
             android:id="@+id/detail_day_of_month"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
             android:padding="8dp"
             android:text="June 28"
-            android:textSize="20dp"
+            android:textColor="@color/orange"
+            android:textSize="17dp"
+            android:textStyle="bold"
 
             />
     </LinearLayout>
@@ -54,36 +42,68 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.92"
+        android:layout_weight="4.5"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/detail_max_temp_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:text="Max temperature: "
+                android:textColor="@color/blue2"
+                android:textSize="15dp"
+                android:textStyle="bold"
+
+
+                />
 
             <TextView
                 android:id="@+id/detail_max_temp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_weight="2.47"
                 android:paddingTop="20dp"
                 android:text="69"
                 android:textAlignment="center"
-                android:textSize="90dp"
+                android:textColor="@color/orange"
+                android:textSize="50dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detail_min_temp_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingTop="15dp"
+                android:text="Min temperature: "
+                android:textColor="@color/blue2"
+                android:textSize="15dp"
+                android:textStyle="bold"
+
+                />
 
             <TextView
                 android:id="@+id/detail_min_temp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:paddingTop="15dp"
                 android:text="60"
                 android:textAlignment="center"
-
-                android:textSize="40dp" />
+                android:textColor="@color/orange"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -99,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_weight="2.5"
+                android:layout_weight="4.47"
                 android:padding="8dp"
                 android:src="@drawable/art_clear" />
 
@@ -107,11 +127,12 @@
                 android:id="@+id/detail_weather_status"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:paddingTop="15dp"
                 android:text="Sunshine day "
                 android:textAlignment="center"
-                android:textSize="25dp"
+                android:textColor="@color/blue2"
+                android:textSize="20dp"
                 android:textStyle="bold"
 
                 />
@@ -120,11 +141,10 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.24"
+        android:layout_weight="3"
         android:orientation="vertical">
 
         <TextView
@@ -132,32 +152,39 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@color/white2"
             android:padding="13dp"
-            android:text="Humidity: 80%"
-            android:textSize="25dp"
-            android:textStyle="bold"
-
-            />
+            android:text="Humiity: 80%"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/detail_pressue"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@color/white1"
             android:padding="13dp"
             android:text="Pressue: 1015hPa"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold"
+
 
             />
 
         <TextView
+            android:id="@+id/details_wind_speed"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@color/white"
             android:padding="13dp"
             android:text="Wind: 2mph NW"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+
     </LinearLayout>
 </LinearLayout>

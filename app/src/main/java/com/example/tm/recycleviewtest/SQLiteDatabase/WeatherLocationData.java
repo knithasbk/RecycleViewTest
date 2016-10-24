@@ -5,24 +5,35 @@ package com.example.tm.recycleviewtest.SQLiteDatabase;
  */
 
 public class WeatherLocationData {
-    int id;
+    int CityId;
     String mCityName;
     Double mCityLon;
     Double mCityLat;
     String mContryName;
 
-    public WeatherLocationData(int id, String mCityName, Double mCityLon, Double mCityLat, String mContryName) {
-        this.id = id;
+    public WeatherLocationData() {
+
+    }
+
+    public WeatherLocationData(String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
         this.mCityName = mCityName;
         this.mCityLon = mCityLon;
         this.mCityLat = mCityLat;
         this.mContryName = mContryName;
     }
-    public int getId(){
-        return id;
+
+    public WeatherLocationData(int  CityId, String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
+        this.CityId = CityId;
+        this.mCityName = mCityName;
+        this.mCityLon = mCityLon;
+        this.mCityLat = mCityLat;
+        this.mContryName = mContryName;
     }
-    public void setId(int id){
-        this.id = id;
+    public int getCityId(){
+        return CityId;
+    }
+    public void setCityId(int CityId){
+        this.CityId = CityId;
     }
 
     public String getmCityName() {
