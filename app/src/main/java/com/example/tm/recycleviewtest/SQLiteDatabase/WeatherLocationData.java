@@ -5,6 +5,7 @@ package com.example.tm.recycleviewtest.SQLiteDatabase;
  */
 
 public class WeatherLocationData {
+    int id;
     int CityId;
     String mCityName;
     Double mCityLon;
@@ -15,14 +16,16 @@ public class WeatherLocationData {
 
     }
 
-    public WeatherLocationData(String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
+    public WeatherLocationData(int CityId, String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
+        this.CityId = CityId;
         this.mCityName = mCityName;
         this.mCityLon = mCityLon;
         this.mCityLat = mCityLat;
         this.mContryName = mContryName;
     }
 
-    public WeatherLocationData(int  CityId, String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
+    public WeatherLocationData(int id, int  CityId, String mCityName, String mContryName, Double mCityLon, Double mCityLat) {
+        this.id = id;
         this.CityId = CityId;
         this.mCityName = mCityName;
         this.mCityLon = mCityLon;

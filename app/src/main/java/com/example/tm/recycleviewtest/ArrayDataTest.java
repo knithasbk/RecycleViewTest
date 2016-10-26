@@ -1,5 +1,6 @@
 package com.example.tm.recycleviewtest;
 
+
 import android.net.http.HttpResponseCache;
 import android.util.Log;
 
@@ -46,7 +47,7 @@ public class ArrayDataTest {
         String dayOfWeek = dateOfWeekFormat.format(d1);
 
         SimpleDateFormat dateOfMonthFormat = new SimpleDateFormat("dd MMM");
-        Date d2 = new Date(1477040400);
+         Date d2 = new Date(1477040400);
         String dayOfMonth = dateOfMonthFormat.format(d2);
 
         try {

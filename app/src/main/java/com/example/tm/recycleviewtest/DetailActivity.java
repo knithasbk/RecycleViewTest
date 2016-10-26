@@ -14,10 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.tm.recycleviewtest.AdapterDetailsForeCast.DetailsForecastFragment;
-import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherCreateDatabaseHelper;
-import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherListData;
-
-import java.util.ArrayList;
 
 /**
  * Created by TM on 10/10/2016.
@@ -41,7 +37,6 @@ public class DetailActivity extends AppCompatActivity {
         Log.i("TEST_TRACE", "Start OnCreate DetailActivity.class");
 
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_activity);
         Log.i("TEST_TRACE", "Verify step Details layout");
@@ -56,8 +51,8 @@ public class DetailActivity extends AppCompatActivity {
         Log.i("TEST_TRACE", "Verify step toolbar");
 
 /*Using Data list position from RecycleView click to get Data for Details Layout*/
-     //   arrayDataTest = new ArrayDataTest();
-    //    weatherListDataArrayList = arrayDataTest.buildDataTest();
+        //   arrayDataTest = new ArrayDataTest();
+        //    weatherListDataArrayList = arrayDataTest.buildDataTest();
 
 /*Get bundle data (int Position) from previous Activity  */
 
@@ -70,7 +65,7 @@ public class DetailActivity extends AppCompatActivity {
         Log.i("TEST_TRACE", "Step 2");
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Log.i("TEST_TRACE", "Step 3");
-        fragmentTransaction.add(R.id.details_fragment_id, detailsForecastFragment);
+        fragmentTransaction.add(R.id.details_activity_id, detailsForecastFragment);
         Log.i("TEST_TRACE", "Step 4");
         fragmentTransaction.commit();
         Log.i("TEST_TRACE", "Verify step Details Layout data");
@@ -89,6 +84,7 @@ public class DetailActivity extends AppCompatActivity {
         Log.i("TEST_TRACE", "End OnCreate DetailActivity.class");
     }
 
+
     /*Create and infalte menu layout for Detaisl Layout*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,8 +94,6 @@ public class DetailActivity extends AppCompatActivity {
         Log.d("TEST_TRACE", "End onCreateOptionsMenu DetailActivity.class");
 
         return super.onCreateOptionsMenu(menu);
-
-
     }
 
     /* Handle settings click actions */

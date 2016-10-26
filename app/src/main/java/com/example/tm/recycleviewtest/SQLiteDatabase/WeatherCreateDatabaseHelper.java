@@ -72,7 +72,7 @@ public class WeatherCreateDatabaseHelper extends SQLiteOpenHelper {
                 + WeatherEntry.COLUMN_STATUS_MAIN + " TEXT NOT NULL, "
                 + WeatherEntry.COLUMN_LOC_ID_SYNC + " INTEGER, "
                 + "FOREIGN KEY ( " + WeatherEntry.COLUMN_LOC_ID_SYNC + " ) REFERENCES " + LocationEntry.DATABASE_NAME +
-                "( " + LocationEntry.ID + " ), UNIQUE (" +WeatherEntry.COLUMN_LOC_ID_SYNC+ ") ON CONFLICT REPLACE);";
+                "( " + LocationEntry.ID + " ), UNIQUE (" + WeatherEntry.COLUMN_LOC_ID_SYNC + ") ON CONFLICT REPLACE);";
 
 
         db.execSQL(CREATE_WEATHER_DATABASE);
@@ -84,11 +84,12 @@ public class WeatherCreateDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.e("EXECUTE", " Delete old DB version " + oldVersion + "create a new DB  version " + newVersion);
-            db.execSQL("DROP TABLE IF EXISTS " + WeatherEntry.DATABASE_NAME);
-            db.execSQL("DROP TABLE IF EXISTS " + LocationEntry.DATABASE_NAME);
-            onCreate(db);
-        }
+        Log.e("EXECUTE", " Delete old DB version " + oldVersion + "create a new DB  version " + newVersion);
+        db.execSQL("DROP TABLE IF EXISTS " + WeatherEntry.DATABASE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + LocationEntry.DATABASE_NAME);
+        onCreate(db);
+    }
+
     /**
      * open database
      */
@@ -136,6 +137,7 @@ public class WeatherCreateDatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.moveToFirst();
             weatherLocationData = new WeatherLocationData(
+                    cursor.getInt(WeatherData.LocationColumnID.COLUMN_ID),
                     cursor.getInt(WeatherData.LocationColumnID.COLUMN_CITY_ID),
                     cursor.getString(WeatherData.LocationColumnID.COLUMN_CITY_LAT),
                     cursor.getString(WeatherData.LocationColumnID.COLUMN_CITY_LON),
@@ -211,6 +213,22 @@ public class WeatherCreateDatabaseHelper extends SQLiteOpenHelper {
         return weatherListDataArrayList;
 
     }
+
+
+    public int getLocationId() {
+        int location = 1;
+        SQLiteDatabase database = this.getWritableDatabase();
+        String selectQuery = "SELECT * FROM " + WeatherData.LocationEntry.DATABASE_NAME;
+        Cursor cursor = database.rawQuery(selectQuery, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            location = cursor.getInt(WeatherData.LocationColumnID.COLUMN_CITY_ID);
+        }
+        database.close();
+        return location;
+
+    }
+
 
 }
 

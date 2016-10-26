@@ -2,38 +2,53 @@
 
 package com.example.tm.recycleviewtest;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.util.Log;
-
 
 /**
  * Created by TM on 10/10/2016.
  */
 
-public class SettingsActivity extends Activity {
-    Toolbar mToolbar;
-
+public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("TEST_TRACE", " Start onCreate() at SettingsActivity.class");
+        Log.i("TEST_TRACE", "Start onCreate at SettingsActivity class ");
         super.onCreate(savedInstanceState);
-  //      setContentView(R.layout.setting_layout);
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+        Log.i("TEST_TRACE", "End onCreate at SettingsActivity class ");
+    }
 
-//        mToolbar = (Toolbar) findViewById(R.id.settings_layout_toolbar);
-
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        SettingsFragment settingsFragment = new SettingsFragment();
-        super.onCreate(savedInstanceState);
-        Log.i("TEST_TRACE", "Start commit fragment");
-        getFragmentManager().beginTransaction()
-                .replace(R.id.settings_fragment_id, settingsFragment)
-                .commit();
-     //   Log.i("TEST_TRACE", " End onCreate() at SettingsActivity.class");
+    public static class MyPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(final Bundle savedInstanceState) {
+            Log.i("TEST_TRACE", "Start onCreate at MyPreferenceFragment class ");
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.settings_preference);
+            Log.i("TEST_TRACE", "End onCreate at MyPreferenceFragment class ");
+        }
 
     }
+
+
+
+
+
+ /*   public String getMetricUnit() {
+        String unit = sharedPreferences.getString("downloadType", "1");
+        return unit;
+    }
+
+    public boolean getNotification() {
+        boolean notify = sharedPreferences.getBoolean("applicationUpdates", false);
+        return notify;
+    }
+*/
 }
+
+
+
+
+
+

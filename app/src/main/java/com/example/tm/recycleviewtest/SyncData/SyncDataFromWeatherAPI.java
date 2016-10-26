@@ -3,46 +3,38 @@ package com.example.tm.recycleviewtest.SyncData;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.example.tm.recycleviewtest.DataWeatherAPI.GetWeatherDataDetailsFromJSONObjectAndStore;
+import com.example.tm.recycleviewtest.SQLiteDatabase.WeatherCreateDatabaseHelper;
+import com.example.tm.recycleviewtest.SettingsActivity;
+
+import java.util.Set;
 
 /**
  * Created by TM on 19/10/2016.
  */
 
 public class SyncDataFromWeatherAPI {
-    int oldCityId = 707860;
-    int newCityId = 519188;
+    int oldCityId = 1269750;
+    int newCityId = 703363;
     Context context;
 
-    public SyncDataFromWeatherAPI(Context context) {
+    public SyncDataFromWeatherAPI(Context context,int newCityId) {
         this.context = context;
+        this.newCityId =newCityId;
     }
 
-    /*Get oldCityId from SQLite Database*/
-    public int getOldCityId() {
-        /*
-        * Using settingsData.class
-        * */
-        return oldCityId;
-    }
 
-    /* Get newCityId from Settings reference */
-    public int getNewCityId() {
-        /*
-        * Using getCityId in WeatherCreateDatabaseHelper
-        * */
-        return newCityId;
-    }
 
     /*Check network information*/
     public boolean isConnected() {
         boolean networkStatus;
-            /*
-    * Check network connection
-    * return status in boolen type
-    * True if have a connection
-    * */
+        /*
+        * Check network connection
+        * return status in boolen type
+        * True if have a connection
+        * */
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         networkStatus = activeNetwork != null
@@ -56,15 +48,12 @@ public class SyncDataFromWeatherAPI {
         getWeatherDataDetailsFromJSONObjectAndStore.execute();
             /*
             * Get data from network
-            * Dele SQLite Database then re-OnCreat();
+            * Delelete SQLite Database then re-OnCreat();
             * */
     }
 
     public void SyncData() {
         if (isConnected()) {
-            newCityId = getNewCityId();
-            oldCityId = getOldCityId();
-            if (newCityId != oldCityId) {
                 refreshData(newCityId);
             }
          /*   context.deleteDatabase(WeatherData.LocationEntry.DATABASE_NAME);
@@ -74,7 +63,7 @@ public class SyncDataFromWeatherAPI {
 
 
     }
-}
+
 
 
 

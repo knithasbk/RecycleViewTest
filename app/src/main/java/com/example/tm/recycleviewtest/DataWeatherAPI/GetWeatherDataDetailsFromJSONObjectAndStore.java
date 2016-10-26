@@ -53,6 +53,8 @@ public class GetWeatherDataDetailsFromJSONObjectAndStore {
     *
     */
     public void execute() {
+        context.deleteDatabase(WeatherData.WeatherEntry.DATABASE_NAME);
+        context.deleteDatabase(WeatherData.LocationEntry.DATABASE_NAME);
         Log.i("TEST_TRACE", " Start execute() at  ParseWeatherDataDetailsFromJSONObject ");
         new DơwnloadJSONString().execute(String.valueOf(cityId));
         Log.i("TEST_TRACE", " End execute() at  ParseWeatherDataDetailsFromJSONObject ");
@@ -62,8 +64,8 @@ public class GetWeatherDataDetailsFromJSONObjectAndStore {
     public void ParseWeatherDataFromJSONObject() {
         JSONObject jsonObjectMain;
         JSONObject jsonObjectCity;
-        context.deleteDatabase(WeatherData.WeatherEntry.DATABASE_NAME);
-        context.deleteDatabase(WeatherData.LocationEntry.DATABASE_NAME);
+
+
         WeatherCreateDatabaseHelper weatherCreateDatabaseHelper = new WeatherCreateDatabaseHelper(context);
         getJSONObjectFromWeatherAPIConnection = new GetJSONObjectFromWeatherAPIConnection(cityId);
         jsonObjectMain = getJSONObjectFromWeatherAPIConnection.execute();
@@ -141,7 +143,11 @@ public class GetWeatherDataDetailsFromJSONObjectAndStore {
                 System.out.println("IMAGE ITEM "+weatherListData.getmImageItem());
                 /*Finish function*/
             }
-        } catch (JSONException e) {
+
+        } catch (NullPointerException e){
+            System.out.print(e + " Array is NOT valid ");
+        }
+        catch (JSONException e) {
             System.out.println(e);
         }
         Log.i("TEST_TRACE", "End ParseWeatherDataFromJSONObject at ParseWeatherDataDetailsFromJSONObject");

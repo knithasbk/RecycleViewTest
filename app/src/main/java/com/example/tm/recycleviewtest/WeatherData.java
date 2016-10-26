@@ -83,11 +83,12 @@ public class WeatherData {
     }
 
     public static final class LocationColumnID {
-        public static final int COLUMN_CITY_ID = 0;
-        public static final int COLUMN_CITY_LAT = 1;
-        public static final int COLUMN_CITY_LON = 2;
-        public static final int COLUMN_CITY_NAME = 3;
-        public static final int COLUMN_COUNTRY_NAME = 4;
+        public static final int COLUMN_ID = 0;
+        public static final int COLUMN_CITY_ID = 1;
+        public static final int COLUMN_CITY_LAT = 2;
+        public static final int COLUMN_CITY_LON = 3;
+        public static final int COLUMN_CITY_NAME =4 ;
+        public static final int COLUMN_COUNTRY_NAME = 5;
 
     }
 
